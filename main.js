@@ -26,8 +26,8 @@ function createGameBoard() {
     }
   }
   for (let i = snakeSize; i >= 1; --i) {
-    drawSnake(initialRow, 0, initialCol, (i * (-1));
-    snakePositions[i] = cellId[initialRow][initialCol  - i];
+    drawSnake(initialRow, 0, (initialCol + 1), (i * (-1)));
+    snakePositions[i] = cellId[initialRow][(initialCol + 1)  - i];
   }
 }
 
@@ -94,6 +94,7 @@ function verifyKey(e) {
     } else {
       document.getElementById(snakePositions[snakeSize]).className = "col-sm cell";
     }
+
     drawSnake(initialRow, rowIndexMod, initialCol, colIndexMod);
     for (let i = snakeSize; i > 1; --i) {
       snakePositions[i] = snakePositions[i - 1];
@@ -126,3 +127,4 @@ function verifyKey(e) {
     }
     return [row, column];
   }
+
